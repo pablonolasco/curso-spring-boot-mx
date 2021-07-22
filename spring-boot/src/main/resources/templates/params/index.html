@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Enviar paramateros</title>
+</head>
+<body>
+<h1>Enviar paramateros</h1>
+<a th:href="@{/params/string(texto='envia datos')}">Envia paramatero</a>
+<br/>
+<a th:href="@{/params/no-requerido(dato='hola')}">No requerido</a>
+<br/>
+<a th:href="@{/params/datos(nombre='vianca',edad=28, sueldo=15.10)}">Envio datos</a>
+<br/>
+<a th:href="@{/params/datos-request(nombre='vianca',edad=28, sueldo=15.10)}">Envio request</a>
+</body>
+</html>
