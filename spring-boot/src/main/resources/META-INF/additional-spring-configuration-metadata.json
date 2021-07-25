@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "texto.homecontroller.index.titulo",
+    "type": "java.lang.String",
+    "description": "A description for 'texto.homecontroller.index.titulo'"
+  },
+  {
+    "name": "texto.homecontroller.perfil.titulo",
+    "type": "java.lang.String",
+    "description": "A description for 'texto.homecontroller.perfil.titulo'"
+  },
+  {
+    "name": "texto.homecontroller.listar.titulo",
+    "type": "java.lang.String",
+    "description": "A description for 'texto.homecontroller.listar.titulo'"
+  }
+]}

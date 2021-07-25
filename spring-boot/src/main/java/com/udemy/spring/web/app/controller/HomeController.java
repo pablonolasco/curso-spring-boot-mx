@@ -20,9 +20,13 @@ import com.udemy.spring.web.app.models.Usuario;
 @RequestMapping(value = "/app")
 public class HomeController {
 	
-	@Value("");
+	@Value("${texto.homecontroller.index.titulo}")
 	private String textIndex;
+	
+	@Value("${texto.homecontroller.perfil.titulo}")
 	private String textPerfil;
+	
+	@Value("${texto.homecontroller.listar.titulo}")
 	private String textoListar;
 	
 	
@@ -33,7 +37,7 @@ public class HomeController {
 	//public String index(Map<String, Object> model){
 	//@GetMapping({"principal","/","home"})
 	//public ModelAndView index(ModelAndView mv){
-		model.addAttribute("titulo", "Hola index");
+		model.addAttribute("titulo", textIndex);
 		//mv.addObject("titulo", "Hola mundo");
 		//mv.setViewName("index");
 		return "index";
@@ -47,7 +51,7 @@ public class HomeController {
 		usuario.setApellido("nolasco");
 		usuario.setEmail("example@live.com");
 		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Hola perfil");
+		model.addAttribute("titulo", textPerfil);
 
 		return "perfil";
 	}
@@ -57,7 +61,7 @@ public class HomeController {
 		List<Usuario> usuarios= Arrays.asList(new Usuario("pablo", "nolasco", "")
 				, new Usuario("vianca", "lopez", ""));
 		model.addAttribute("usuarios", usuarios);
-		model.addAttribute("titulo", "Hola listar");
+		model.addAttribute("titulo", textoListar);
 
 		return "listar";
 	}
