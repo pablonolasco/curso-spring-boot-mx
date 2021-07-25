@@ -2,7 +2,7 @@ package com.udemy.spring.web.app.controller;
 
 import java.util.Map;
 
-
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -20,13 +20,20 @@ import com.udemy.spring.web.app.models.Usuario;
 @RequestMapping(value = "/app")
 public class HomeController {
 	
+	@Value("");
+	private String textIndex;
+	private String textPerfil;
+	private String textoListar;
+	
+	
+	
 	@GetMapping(value="/principal")
 	public String index(Model model) {
 	//public String index(ModelMap model){
 	//public String index(Map<String, Object> model){
 	//@GetMapping({"principal","/","home"})
 	//public ModelAndView index(ModelAndView mv){
-		model.addAttribute("titulo", "Hola mundo");
+		model.addAttribute("titulo", "Hola index");
 		//mv.addObject("titulo", "Hola mundo");
 		//mv.setViewName("index");
 		return "index";
@@ -40,6 +47,8 @@ public class HomeController {
 		usuario.setApellido("nolasco");
 		usuario.setEmail("example@live.com");
 		model.addAttribute("usuario", usuario);
+		model.addAttribute("titulo", "Hola perfil");
+
 		return "perfil";
 	}
 	
@@ -48,6 +57,8 @@ public class HomeController {
 		List<Usuario> usuarios= Arrays.asList(new Usuario("pablo", "nolasco", "")
 				, new Usuario("vianca", "lopez", ""));
 		model.addAttribute("usuarios", usuarios);
+		model.addAttribute("titulo", "Hola listar");
+
 		return "listar";
 	}
 	

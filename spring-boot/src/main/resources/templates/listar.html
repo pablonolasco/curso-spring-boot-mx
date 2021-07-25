@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1 class="color-rojo" th:text="${titulo}"></h1>
 
 	<div th:if="${usuarios.size()==0}">no hay usuarios registrados</div>
 	<table th:if="${!usuarios.isEmpty()}">

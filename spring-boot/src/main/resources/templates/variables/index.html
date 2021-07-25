@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Enviar paramateros</title>
+</head>
+<body>
+<h1>Enviar paramateros</h1>
+<a th:href="@{/variables/path-variable/}+'hola'">Envia paramatero path variable</a>
+<br>
+<a th:href="@{/variables/path-variable/datos/}+'pablo'+ '/' +4">Envia paramatero path variables</a>
+<br>
+<a th:href="@{/variables/path-variable/datos/} + ${'pablo'} + '/' + ${'4'}">Envia paramatero path variables otra forma</a> 
+</body>
+</html>
