@@ -13,16 +13,14 @@ public class HomeController {
 	
 	//private MiServicio miServicio= new MiServicio();
 	//==Inyecta la dependencia
-	//@Autowired
-	//private IService miServicio;
-	
+	@Autowired
 	private IService miServicio;
 	
 	//== Inyectar dependencia en constructor, aunque no se coloque la palabra reservada @Autowired, 
 	//== el core de spring lo reeconoce en automatico
-	public HomeController(IService iService) {
+	/*public HomeController(IService iService) {
 		this.miServicio=iService;
-	}
+	}*/
 	
 	@GetMapping({"/","index",""})
 	public String index(Model model) {
