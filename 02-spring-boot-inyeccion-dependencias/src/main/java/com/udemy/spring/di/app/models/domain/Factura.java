@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
 public class Factura {
 
@@ -42,6 +45,26 @@ public class Factura {
 
 	public void setItems(List<ItemFactura> items) {
 		this.items = items;
+	}
+
+	// Ciclo de vida de un componente
+
+	/**
+	 * Metodo que se ejecuta despues de que se crea el componente @PostConstruct
+	 * Parecido a un constructor pero se deja a spring el control
+	 */
+	@PostConstruct
+	public void init(){
+		this.cliente.setNombre(cliente.getNombre().concat(" ").concat(" Castro"));
+		this.descripcion=descripcion.concat(" del cliente");
+	}
+
+	/**
+	 * Metodo que se ejecuta despues de destruir el componente
+	 */
+	@PreDestroy
+	public void destroy(){
+		System.out.println("factura destruida ".concat(descripcion));
 	}
 
 }
