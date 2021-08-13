@@ -1,5 +1,6 @@
 package com.udemy.spring.from.data.app.controller;
 
+import com.udemy.spring.from.data.app.models.domain.Usuario;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +21,15 @@ public class FormController {
     @PostMapping("/frmProcesar")
     public String form(Model model, @RequestParam("user") String nombre, @RequestParam String password,
                        @RequestParam String email) {
+        Usuario usuario= new Usuario();
+        usuario.setNombre(nombre);
+        usuario.setPassword(password);
+        usuario.setEmail(email);
         model.addAttribute("titulo","Datos enviados");
-        model.addAttribute("user",nombre);
+        /*model.addAttribute("user",nombre);
         model.addAttribute("password",password);
-        model.addAttribute("email",email);
+        model.addAttribute("email",email);*/
+        model.addAttribute("usuario",usuario);
         return "index";
     }
 }
