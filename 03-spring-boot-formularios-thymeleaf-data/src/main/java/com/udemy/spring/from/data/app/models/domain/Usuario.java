@@ -1,8 +1,15 @@
 package com.udemy.spring.from.data.app.models.domain;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Usuario {
+    @NotEmpty
     private String nombre;
+
+    @NotEmpty
     private String password;
+
+    @NotEmpty
     private String email;
 
     public String getNombre() {
