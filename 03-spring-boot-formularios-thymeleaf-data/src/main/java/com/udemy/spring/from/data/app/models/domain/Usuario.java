@@ -12,6 +12,9 @@ public class Usuario {
     @NotEmpty
     private String email;
 
+    @NotEmpty
+    private String telefono;
+
     public String getNombre() {
         return nombre;
     }
@@ -34,5 +37,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }
