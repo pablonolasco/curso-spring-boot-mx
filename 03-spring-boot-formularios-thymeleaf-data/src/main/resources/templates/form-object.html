@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+:)
+<form th:action="@{frmProcesarThyme}" th:object="${usuario}" method="post">
+    <div>
+        <label for="nombre">Nombre</label>
+        <!--
+        *{nombre} mapeo con thymeleaf
+        #fields helper que ayuda a verificar si tiene errores con thymeleaf
+        -->
+        <div><input type="text" name="nombre" id="nombre" th:field="*{nombre}"/></div>
+        <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <div><input type="password" name="password" id="password" th:field="*{password}"/></div>
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    </div>
+    <div>
+        <label for="email">Correo</label>
+        <div><input type="email" name="email" id="email" th:field="*{email}"/></div>
+        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    </div>
+    <div>
+        <label for="telefono">Telefono:</label>
+        <div><input type="text" name="telefono" id="telefono" th:field="*{telefono}"></div>
+        <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+    </div>
+    <div>
+        <div><input type="submit" name="enviar" id="enviar"/></div>
+    </div>
+</form>
+</body>
+</html>

@@ -19,8 +19,11 @@ public class FormController {
     @GetMapping("/data")
     public String index(Model model) {
         model.addAttribute("titulo", "Formulario");
-        model.addAttribute("user",new Usuario());
-        return "form";
+        // usuado en @ModelAttribute("user")
+        //model.addAttribute("user",new Usuario());
+        model.addAttribute("usuario",new Usuario());
+        //return "form";
+        return "form-object";
     }
 
     /**
@@ -55,18 +58,33 @@ public class FormController {
      * @return
      */
     @PostMapping("/frmProcesar")
-    public String form(@Valid @ModelAttribute("user") Usuario usuario, BindingResult result, Model model){
+    //public String form(@Valid @ModelAttribute("user") Usuario usuario, BindingResult result, Model model){
+    public String form(@Valid Usuario usuario, BindingResult result, Model model){
         model.addAttribute("titulo","Datos enviados");
         if (result.hasErrors()) {
 
             Map<String,String> mapErrors= new HashMap<>();
             result.getFieldErrors().forEach(error->{
-                mapErrors.put(error.getField(), "El campo ".concat(error.getField()).concat(" ").concat(error.getDefaultMessage()));
+                mapErrors.put(error.getField(), "El campo ".concat(error.getField()).concat(" ").
+                        concat(error.getDefaultMessage()));
             });
+
             model.addAttribute("error",mapErrors);
-            return "form";
+            //return "form";
+            return "form-object";
         }
         model.addAttribute("usuario",usuario);
+        return "index";
+    }
+
+    @PostMapping("/frmProcesarThyme")
+    public String send(@Valid Usuario usuario, BindingResult result, Model model){
+        model.addAttribute("titulo","Datos enviados");
+        if (result.hasErrors()){
+            return "form-object";
+        }
+        model.addAttribute("usuario",usuario);
+
         return "index";
     }
 }
