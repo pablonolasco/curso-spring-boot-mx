@@ -11,8 +11,7 @@ public class Usuario {
     @NotEmpty
     private String id;
 
-    @NotEmpty
-    @Value("${texto.formcontroller.usuario.nombre}")
+    @NotEmpty(message = "El nombre es obligatorio")
     private String nombre;
 
     @NotEmpty
