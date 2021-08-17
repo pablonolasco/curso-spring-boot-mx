@@ -1,18 +1,26 @@
 package com.udemy.spring.from.data.app.models.domain;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
     @NotEmpty
     private String id;
+
     @NotEmpty
+    @Value("${texto.formcontroller.usuario.nombre}")
     private String nombre;
 
     @NotEmpty
+    @Size(min = 3,max = 8)
     private String password;
 
     @NotEmpty
+    @Email
     private String email;
 
     @NotEmpty
