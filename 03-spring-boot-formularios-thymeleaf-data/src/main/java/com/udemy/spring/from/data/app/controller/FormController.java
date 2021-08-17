@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 
@@ -14,14 +15,18 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/forms")
+@SessionAttributes("usuario")
 public class FormController {
 
     @GetMapping("/data")
     public String index(Model model) {
         model.addAttribute("titulo", "Formulario");
+        Usuario usuario= new Usuario();
+        usuario.setId("121d1");
+
         // usuado en @ModelAttribute("user")
         //model.addAttribute("user",new Usuario());
-        model.addAttribute("usuario",new Usuario());
+        model.addAttribute("usuario",usuario);
         //return "form";
         return "form-object";
     }
@@ -78,13 +83,14 @@ public class FormController {
     }
 
     @PostMapping("/frmProcesarThyme")
-    public String send(@Valid Usuario usuario, BindingResult result, Model model){
+    public String send(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus sessionStatus){
         model.addAttribute("titulo","Datos enviados");
         if (result.hasErrors()){
             return "form-object";
         }
         model.addAttribute("usuario",usuario);
-
+        // Elimina la session
+        sessionStatus.setComplete();
         return "index";
     }
 }

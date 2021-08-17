@@ -3,6 +3,9 @@ package com.udemy.spring.from.data.app.models.domain;
 import javax.validation.constraints.NotEmpty;
 
 public class Usuario {
+
+    @NotEmpty
+    private String id;
     @NotEmpty
     private String nombre;
 
@@ -14,6 +17,14 @@ public class Usuario {
 
     @NotEmpty
     private String telefono;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
