@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -89,7 +90,7 @@ public class FormController {
 
     @PostMapping("/frmProcesarThyme")
     public String send(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus sessionStatus){
-        this.usuarioValidator.validate(usuario,result);
+     //   this.usuarioValidator.validate(usuario,result);
         model.addAttribute("titulo","Datos enviados");
         if (result.hasErrors()){
             return "form-object";
@@ -98,5 +99,14 @@ public class FormController {
         // Elimina la session
         sessionStatus.setComplete();
         return "index";
+    }
+
+    /**
+     * Metodo que sirve para inicializar el validador, y se agrega al ciclo de vida del controller de spring+
+     * @param webDataBinder
+     */
+    @InitBinder
+    public void init(WebDataBinder webDataBinder){
+        webDataBinder.addValidators(this.usuarioValidator);
     }
 }
