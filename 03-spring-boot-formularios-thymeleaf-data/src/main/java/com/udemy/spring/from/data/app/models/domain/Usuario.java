@@ -2,21 +2,18 @@ package com.udemy.spring.from.data.app.models.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class Usuario {
 
     //@NotEmpty
-    @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[-][A-Z]{1}",message = "Debe coincidir con 12.123-A")
+   // @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[-][A-Z]{1}",message = "Debe coincidir con 12.123-A")
     private String id;
 
-    @NotEmpty(message = "El nombre es obligatorio")
+    //@NotEmpty(message = "El nombre es obligatorio")
     private String nombre;
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 3,max = 8)
     private String password;
 

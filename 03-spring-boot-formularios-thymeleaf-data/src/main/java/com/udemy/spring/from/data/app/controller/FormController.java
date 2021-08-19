@@ -1,6 +1,8 @@
 package com.udemy.spring.from.data.app.controller;
 
 import com.udemy.spring.from.data.app.models.domain.Usuario;
+import com.udemy.spring.from.data.app.utils.UsuarioValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +19,9 @@ import java.util.Map;
 @RequestMapping("/forms")
 @SessionAttributes("usuario")
 public class FormController {
+
+    @Autowired
+    private UsuarioValidator usuarioValidator;
 
     @GetMapping("/data")
     public String index(Model model) {
@@ -84,6 +89,7 @@ public class FormController {
 
     @PostMapping("/frmProcesarThyme")
     public String send(@Valid Usuario usuario, BindingResult result, Model model, SessionStatus sessionStatus){
+        this.usuarioValidator.validate(usuario,result);
         model.addAttribute("titulo","Datos enviados");
         if (result.hasErrors()){
             return "form-object";
