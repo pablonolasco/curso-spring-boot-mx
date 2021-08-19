@@ -9,6 +9,14 @@
 :)
 <form th:action="@{frmProcesarThyme}" th:object="${usuario}" method="post">
     <div>
+        <label for="id">Id</label>
+       <div>
+           <input type="text" name="id" id="id" th:field="*{id}">
+       </div>
+        <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+
+    </div>
+    <div>
         <label for="nombre">Nombre</label>
         <!--
         *{nombre} mapeo con thymeleaf

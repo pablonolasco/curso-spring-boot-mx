@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class Usuario {
 
-    @NotEmpty
+    //@NotEmpty
+    @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[-][A-Z]{1}",message = "Debe coincidir con 12.123-A")
     private String id;
 
     @NotEmpty(message = "El nombre es obligatorio")

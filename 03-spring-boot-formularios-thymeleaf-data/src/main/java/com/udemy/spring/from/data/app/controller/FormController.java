@@ -22,7 +22,7 @@ public class FormController {
     public String index(Model model) {
         model.addAttribute("titulo", "Formulario");
         Usuario usuario= new Usuario();
-        usuario.setId("121d1");
+ //       usuario.setId("121d1");
 
         // usuado en @ModelAttribute("user")
         //model.addAttribute("user",new Usuario());
