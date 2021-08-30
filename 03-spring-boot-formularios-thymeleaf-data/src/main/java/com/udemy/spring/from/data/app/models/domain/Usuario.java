@@ -3,6 +3,7 @@ package com.udemy.spring.from.data.app.models.domain;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.udemy.spring.from.data.app.validation.IdentificadorRegex;
+import com.udemy.spring.from.data.app.validation.Requerido;
 
 import javax.validation.constraints.*;
 
@@ -14,7 +15,8 @@ public class Usuario {
     private String id;
 
     //@NotEmpty(message = "El nombre es obligatorio")
-    private String nombre;
+    @Requerido
+	private String nombre;
 
     @NotBlank
     @Size(min = 3,max = 8)
