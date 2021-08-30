@@ -18,11 +18,12 @@ public class UsuarioValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         // Creas el objeto  a validar
-        Usuario usuario= (Usuario) target;
+        //Usuario usuario= (Usuario) target;
         // valida campo
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"nombre","requerido.usuario.nombre");
-        if (!usuario.getId().matches("[0-9]{2}[.][\\\\d]{3}[-][A-Z]{1}")){
+        //se comenta en caso de realizar un Validación personalizada usando anotaciones
+       /* if (!usuario.getId().matches("[0-9]{2}[.][\\\\d]{3}[-][A-Z]{1}")){
                 errors.rejectValue("id","pattern.usuario.id");
-        }
+        }*/
     }
 }

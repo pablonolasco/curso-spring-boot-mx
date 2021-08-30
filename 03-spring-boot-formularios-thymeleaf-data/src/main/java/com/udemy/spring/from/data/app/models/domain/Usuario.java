@@ -2,12 +2,15 @@ package com.udemy.spring.from.data.app.models.domain;
 
 import org.springframework.beans.factory.annotation.Value;
 
+import com.udemy.spring.from.data.app.validation.IdentificadorRegex;
+
 import javax.validation.constraints.*;
 
 public class Usuario {
 
     //@NotEmpty
    // @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[-][A-Z]{1}",message = "Debe coincidir con 12.123-A")
+	@IdentificadorRegex //anotacion personalizada
     private String id;
 
     //@NotEmpty(message = "El nombre es obligatorio")
