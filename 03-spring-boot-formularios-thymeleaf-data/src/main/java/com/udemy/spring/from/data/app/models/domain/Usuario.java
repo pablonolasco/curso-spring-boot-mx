@@ -26,7 +26,8 @@ public class Usuario {
     @Email
     private String email;
 
-    @NotEmpty
+    //@NotEmpty
+    @Requerido
     private String telefono;
 
     public String getId() {

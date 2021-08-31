@@ -13,7 +13,7 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 @Target({ FIELD, METHOD })
 public @interface Requerido {
-	String message() default "Nombre obligatorio con anotaciones";
+	String message() default "el campo es obligatorio con anotaciones";
 
 	Class<?>[] groups() default { };
 
