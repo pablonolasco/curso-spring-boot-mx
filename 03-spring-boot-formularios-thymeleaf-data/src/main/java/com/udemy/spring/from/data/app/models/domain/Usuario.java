@@ -39,6 +39,8 @@ public class Usuario {
     private Integer cuenta;
     
     @NotNull
+    //@Past // fecha anterior a la actual
+    @FutureOrPresent // fecha actual o superior
     @DateTimeFormat(pattern = "yyyy-MM-dd")// pattern para no cambiar el formato
     private Date fechaNacimiento;
 
