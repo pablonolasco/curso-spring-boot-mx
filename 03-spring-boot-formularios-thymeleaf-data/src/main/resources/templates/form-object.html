@@ -46,6 +46,12 @@
     <div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
     </div>
     <div>
+    <label>Fecha de nacimiento:</label>
+    <div><input type="text" name="fechaNacimiento" id="fechaNacimiento" placeholder="yyyy-MM-dd" th:field="*{fechaNacimiento}"></div>
+    <div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+    </div>
+    <br>
+    <div>
         <div><input type="submit" name="enviar" id="enviar"/></div>
     </div>
 </form>

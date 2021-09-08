@@ -1,9 +1,12 @@
 package com.udemy.spring.from.data.app.models.domain;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.udemy.spring.from.data.app.validation.IdentificadorRegex;
 import com.udemy.spring.from.data.app.validation.Requerido;
+
+import java.util.Date;
 
 import javax.validation.constraints.*;
 
@@ -35,6 +38,9 @@ public class Usuario {
     @Max(10)
     private Integer cuenta;
     
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")// pattern para no cambiar el formato
+    private Date fechaNacimiento;
 
     public String getId() {
         return id;
@@ -84,6 +90,16 @@ public class Usuario {
 	public void setCuenta(Integer cuenta) {
 		this.cuenta = cuenta;
 	}
+
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	
+	
     
     
 }
