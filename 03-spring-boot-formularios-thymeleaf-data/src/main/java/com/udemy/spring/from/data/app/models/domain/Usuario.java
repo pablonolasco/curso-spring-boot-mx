@@ -29,6 +29,12 @@ public class Usuario {
     //@NotEmpty
     @Requerido
     private String telefono;
+    
+    @NotNull // solo se utiliza para variables tipo objeto, no para variables primitivas, para esas se usan min o max
+    @Min(5)
+    @Max(10)
+    private Integer cuenta;
+    
 
     public String getId() {
         return id;
@@ -65,8 +71,19 @@ public class Usuario {
     public String getTelefono() {
         return telefono;
     }
+    
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+	public Integer getCuenta() {
+		return cuenta;
+	}
+
+	public void setCuenta(Integer cuenta) {
+		this.cuenta = cuenta;
+	}
+    
+    
 }

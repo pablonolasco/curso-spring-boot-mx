@@ -1,0 +1,6 @@
+Ctrl+ E moverse entre archivos abiertos
+Ctrl+ H se usa etiqueta abierta, en la que puede seleccionar el tipo de archivo Búsqueda remota, búsqueda de archivos, búsqueda git, búsqueda java, búsqueda javascript, etc.
+Ctrl+ Shift+ R se usa para buscar todos los archivos en el proyecto actual
+Ctrl+ Shift+ T se usa para buscar todos los archivos en el espacio de trabajo
+Ctrl+Alt+↓ duplica la línea actual en la línea inferior
+Si instala el complemento llamado InstaSearch , su búsqueda será más rápida dentro de los proyectos de trabajo activos actuales.

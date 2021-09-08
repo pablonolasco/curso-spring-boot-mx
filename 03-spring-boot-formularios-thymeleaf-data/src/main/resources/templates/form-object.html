@@ -41,6 +41,11 @@
         <div th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
     </div>
     <div>
+    <label>Cuenta:</label>
+    <div><input type="text" name="cuenta" id="cuenta" th:field="*{cuenta}"></div>
+    <div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+    </div>
+    <div>
         <div><input type="submit" name="enviar" id="enviar"/></div>
     </div>
 </form>
