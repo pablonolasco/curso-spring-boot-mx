@@ -3,6 +3,7 @@ package com.udemy.spring.from.data.app.controller;
 import com.udemy.spring.from.data.app.models.domain.Usuario;
 import com.udemy.spring.from.data.app.utils.UsuarioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -108,5 +111,10 @@ public class FormController {
     @InitBinder
     public void init(WebDataBinder webDataBinder){
         webDataBinder.addValidators(this.usuarioValidator);
+        SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
+        // indica que es estricto para validar el formato
+        format.setLenient(false);
+        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(format, false));
     }
+    
 }

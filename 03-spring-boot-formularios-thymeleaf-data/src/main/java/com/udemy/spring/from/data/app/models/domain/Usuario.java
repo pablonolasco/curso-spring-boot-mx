@@ -41,7 +41,7 @@ public class Usuario {
     @NotNull
     //@Past // fecha anterior a la actual
     @FutureOrPresent // fecha actual o superior
-    @DateTimeFormat(pattern = "yyyy-MM-dd")// pattern para no cambiar el formato
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")// pattern para no cambiar el formato
     private Date fechaNacimiento;
 
     public String getId() {
