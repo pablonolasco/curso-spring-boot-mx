@@ -114,7 +114,8 @@ public class FormController {
         SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd");
         // indica que es estricto para validar el formato
         format.setLenient(false);
-        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(format, false));
+        // indicas el campo a validar
+        webDataBinder.registerCustomEditor(Date.class,"fechaNacimiento", new CustomDateEditor(format, false));// false, no acepta vacio
     }
     
 }
