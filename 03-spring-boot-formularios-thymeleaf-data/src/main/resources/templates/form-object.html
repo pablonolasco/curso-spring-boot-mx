@@ -9,6 +9,17 @@
 :)
 <form th:action="@{frmProcesarThyme}" th:object="${usuario}" method="post">
     <div>
+        <label for="pais">Pais</label>
+       <div>
+           <select id="pais" name="pais" th:field="*{pais}">
+           		<option value="">Selecciona opcion</option>
+           		<option th:if="${!paises.isEmpty}" th:each="pais:${paises}" th:text="${pais}" th:value="${pais}"></option>
+           </select>
+       </div>
+        <div th:if="${#fields.hasErrors('pais')}" th:errors="*{pais}"></div>
+
+    </div>
+    <div>
         <label for="id">Id</label>
        <div>
            <input type="text" name="id" id="id" th:field="*{id}">

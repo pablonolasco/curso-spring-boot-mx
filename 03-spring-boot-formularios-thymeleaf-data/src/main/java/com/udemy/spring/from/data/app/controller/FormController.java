@@ -1,5 +1,6 @@
 package com.udemy.spring.from.data.app.controller;
 
+import com.udemy.spring.from.data.app.editors.NombreMayusculaEditor;
 import com.udemy.spring.from.data.app.models.domain.Usuario;
 import com.udemy.spring.from.data.app.utils.UsuarioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import javax.validation.Valid;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -115,7 +118,20 @@ public class FormController {
         // indica que es estricto para validar el formato
         format.setLenient(false);
         // indicas el campo a validar
-        webDataBinder.registerCustomEditor(Date.class,"fechaNacimiento", new CustomDateEditor(format, false));// false, no acepta vacio
+        webDataBinder.registerCustomEditor(Date.class,"fechaNacimiento", new CustomDateEditor(format, true));// false, no acepta vacio
+        // convertir a mayusculas
+        webDataBinder.registerCustomEditor(String.class,"nombre", new NombreMayusculaEditor());
+        webDataBinder.registerCustomEditor(String.class,"password", new NombreMayusculaEditor());
+    
+    }
+    
+    /**
+     * 
+     * @return una lista de paises
+     */
+    @ModelAttribute("paises")
+    public List<String> paises(){
+    	return Arrays.asList("España","Mexico","Chile","Colombia");
     }
     
 }
